@@ -5,39 +5,35 @@ Installs the MeetMe plugin for NewRelic
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+python
+python-pip
+newrelic
 
-e.g.
-#### packages
-- `toaster` - meetme-newrelic-plugin needs toaster to brown your bagel.
 
 Attributes
 ----------
-TODO: List you cookbook attributes here.
-
-e.g.
 #### meetme-newrelic-plugin::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['meetme-newrelic-plugin']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+* `node[:meetme_newrelic_plugin][:package_name]` - The name of the pip package that installs the meetme newrelic plugin  
+* `node[:meetme_newrelic_plugin][:poll_interval]` - interval, in seconds, that stats are polled  
+* `node[:meetme_newrelic_plugin][:config_file]` -  location of config file 
+* `node[:meetme_newrelic_plugin][:run_dir]` -  the run directory for the pid file
+* `node[:meetme_newrelic_plugin][:user]` -  the user that runs the application 
+* `node[:meetme_newrelic_plugin][:group]` -  group for application file permissions 
+
+#### meetme-newrelic-plugin::mongodb
+* `node[:meetme_newrelic_plugin][:mongodb][:host]` - host mongodb instance is running on
+* `node[:meetme_newrelic_plugin][:mongodb][:port]` - port mongdb is listening on
+* `node[:meetme_newrelic_plugin][:mongodb][:database]` - name of database to monitor
+* `node[:meetme_newrelic_plugin][:mongodb][:databag_name]` - name of databag that holds mongo config
+* `node[:meetme_newrelic_plugin][:mongodb][:databag_item_name]` - name of databag item for mongo config
+* `node[:meetme_newrelic_plugin][:mongodb][:admin_username_key]` - key for admin username
+* `node[:meetme_newrelic_plugin][:mongodb][:admin_password_key]` - key for admin password
+* `node[:meetme_newrelic_plugin][:mongodb][:db_username_key]` - key for db username
+* `node[:meetme_newrelic_plugin][:mongodb][:db_password_key]` - key for db password
+
 
 Usage
 -----
-#### meetme-newrelic-plugin::default
-TODO: Write usage instructions for each cookbook.
-
-e.g.
 Just include `meetme-newrelic-plugin` in your node's `run_list`:
 
 ```json
@@ -51,9 +47,6 @@ Just include `meetme-newrelic-plugin` in your node's `run_list`:
 
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
-
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write you change
