@@ -16,8 +16,8 @@ Application:
         password: <%= @db_password %>
 
 Daemon:
-  user: newrelic
-  pidfile: /var/run/newrelic/newrelic_plugin_agent.pid
+  user: <%= @user %>
+  pidfile: <%= @run_dir %>/newrelic_plugin_agent.pid
 
 Logging:
   formatters:
@@ -27,7 +27,7 @@ Logging:
     file:
       class : logging.handlers.RotatingFileHandler
       formatter: verbose
-      filename: /var/log/newrelic/newrelic_plugin_agent.log
+      filename: <%= @log_file %>
       maxBytes: 10485760
       backupCount: 3
   loggers:

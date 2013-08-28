@@ -15,7 +15,9 @@ Attributes
 #### meetme-newrelic-plugin::default
 * `node[:meetme_newrelic_plugin][:package_name]` - The name of the pip package that installs the meetme newrelic plugin  
 * `node[:meetme_newrelic_plugin][:poll_interval]` - interval, in seconds, that stats are polled  
-* `node[:meetme_newrelic_plugin][:config_file]` -  location of config file 
+* `node[:meetme_newrelic_plugin][:config_file]` -  location of config file
+* `node[:meetme_newrelic_plugin][:log_dir]` - logging directory
+* `node[:meetme_newrelic_plugin][:log_file]` - name of log file
 * `node[:meetme_newrelic_plugin][:run_dir]` -  the run directory for the pid file
 * `node[:meetme_newrelic_plugin][:user]` -  the user that runs the application 
 * `node[:meetme_newrelic_plugin][:group]` -  group for application file permissions 

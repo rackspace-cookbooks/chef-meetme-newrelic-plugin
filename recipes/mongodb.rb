@@ -39,6 +39,9 @@ template node[:meetme_newrelic_plugin][:config_file] do
   variables(
   	:license_key => node[:newrelic][:application_monitoring][:license],
   	:poll_interval => node[:meetme_newrelic_plugin][:poll_interval],
+    :user => node[:meetme_newrelic_plugin][:user],
+    :log_file => "#{node[:meetme_newrelic_plugin][:log_dir]}/#{node[:meetme_newrelic_plugin][:log_file]}",
+    :run_dir => node[:meetme_newrelic_plugin][:run_dir],
   	:hostname => node[:hostname],
   	:host => node[:meetme_newrelic_plugin][:mongodb][:host],
   	:port => node[:meetme_newrelic_plugin][:mongodb][:port],
