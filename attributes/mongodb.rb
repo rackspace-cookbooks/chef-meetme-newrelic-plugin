@@ -1,0 +1,9 @@
+default[:meetme_newrelic_plugin][:mongodb][:host] = "localhost"
+default[:meetme_newrelic_plugin][:mongodb][:port] = "27017"
+default[:meetme_newrelic_plugin][:mongodb][:database] = "meniscus"
+default[:meetme_newrelic_plugin][:mongodb][:databag_name] = nil 
+default[:meetme_newrelic_plugin][:mongodb][:databag_item_name] = "configdb" 
+default[:meetme_newrelic_plugin][:mongodb][:admin_username_key] = "admin_user"
+default[:meetme_newrelic_plugin][:mongodb][:admin_password_key] = "admin_pass"
+default[:meetme_newrelic_plugin][:mongodb][:db_username_key] = "meniscus_user"
+default[:meetme_newrelic_plugin][:mongodb][:db_password_key] = "meniscus_pass"
