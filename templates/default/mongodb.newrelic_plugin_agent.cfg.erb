@@ -8,12 +8,12 @@ Application:
     name: <%= @hostname %>
     host: <%= @host %>
     port: <%= @port %>
-    admin_username: <%= @admin_username %>
-    admin_password: <%= @admin_password %>
+    admin_username: "<%= @admin_username %>"
+    admin_password: "<%= @admin_password %>"
     databases:
       <%= @database %>:
-        username: <%= @db_username %>
-        password: <%= @db_password %>
+        username: "<%= @db_username %>"
+        password: "<%= @db_password %>"
 
 Daemon:
   user: <%= @user %>
