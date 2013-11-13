@@ -3,13 +3,17 @@
 # Recipe:: default
 #
 
-include_recipe "python::#{node['python']['install_method']}"
+include_recipe "python::#{node[:python][:install_method]}"
 include_recipe "python::pip"
 
+Chef::Log.info(node[:python][:install_method])
+Chef::Log.info(node[:meetme_newrelic_plugin][:package_name])
 #install the meet me newrelic plugin agent
 python_pip node[:meetme_newrelic_plugin][:package_name] do
   action :install
 end
+
+Chef::Log.info(node[:meetme_newrelic_plugin][:package_name])
 
 directory node[:meetme_newrelic_plugin][:run_dir] do
   owner node[:meetme_newrelic_plugin][:user]
@@ -43,8 +47,8 @@ end
 template node[:meetme_newrelic_plugin][:config_file] do
   source "newrelic_plugin_agent.cfg.erb"
   variables(
-  	:license_key => node[:newrelic][:application_monitoring][:license],
-  	:poll_interval => node[:meetme_newrelic_plugin][:poll_interval],
+          :license_key => node[:newrelic][:application_monitoring][:license],
+          :poll_interval => node[:meetme_newrelic_plugin][:poll_interval],
     :user => node[:meetme_newrelic_plugin][:user],
     :log_file => "#{node[:meetme_newrelic_plugin][:log_dir]}/#{node[:meetme_newrelic_plugin][:log_file]}",
     :run_dir => node[:meetme_newrelic_plugin][:run_dir]

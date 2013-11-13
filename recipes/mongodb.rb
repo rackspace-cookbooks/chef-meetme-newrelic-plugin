@@ -1,5 +1,4 @@
-include_recipe "python::#{node['python']['install_method']}"
-include_recipe "python::pip"
+include_recipe "meetme-newrelic-plugin::default"
 
 #install the meet me newrelic plugin agent
 python_pip "pymongo" do

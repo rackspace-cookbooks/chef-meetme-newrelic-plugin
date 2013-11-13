@@ -1,3 +1,4 @@
+include_recipe "meetme-newrelic-plugin::default"
 #define newrelic-plugin-agent service
 service "newrelic_plugin_agent" do
   supports :restart => true, :start => true, :stop => true, :status => true
