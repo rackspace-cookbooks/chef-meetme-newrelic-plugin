@@ -22,6 +22,12 @@ Attributes
 * `node[:meetme_newrelic_plugin][:user]` -  the user that runs the application 
 * `node[:meetme_newrelic_plugin][:group]` -  group for application file permissions 
 
+#### meetme-newrelic-plugin::memcached
+* `node[:meetme_newrelic_plugin][:memcached][:name]` - hostname memcached instance is running on
+* `node[:meetme_newrelic_plugin][:memcached][:host]` - host memcached instance is running on
+* `node[:meetme_newrelic_plugin][:memcached][:port]` - port memcached is listening on
+* `node[:meetme_newrelic_plugin][:memcached][:path]` - path of unix socket (if memcached is using one)
+
 #### meetme-newrelic-plugin::mongodb
 * `node[:meetme_newrelic_plugin][:mongodb][:host]` - host mongodb instance is running on
 * `node[:meetme_newrelic_plugin][:mongodb][:port]` - port mongdb is listening on
