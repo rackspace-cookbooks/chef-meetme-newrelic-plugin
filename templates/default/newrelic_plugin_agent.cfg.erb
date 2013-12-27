@@ -18,9 +18,7 @@ Application:
     name: <%= node[:meetme_newrelic_plugin][:memcached][:name] %>
     host: <%= node[:meetme_newrelic_plugin][:memcached][:host] %>
     port: <%= node[:meetme_newrelic_plugin][:memcached][:port] %>
-  <%= unless node[:meetme_newrelic_plugin][:memcached][:path].nil? %>
-    path: <%= node[:meetme_newrelic_plugin][:memcached][:path] %>
-  <% end %>
+    <% unless node[:meetme_newrelic_plugin][:memcached][:path].nil?  %>path: <%= node[:meetme_newrelic_plugin][:memcached][:path] %><% end %>
 <% end %>
 
 <% if node[:meetme_newrelic_plugin][:mongodb][:enable] %>
@@ -33,7 +31,7 @@ Application:
     databases:
       <%= node[:meetme_newrelic_plugin][:mongodb][:database] %>:
         username: "<%= node[:meetme_newrelic_plugin][:mongodb][:db_username] %>"
-        password: "<%= node[:meetme_newrelic_plugin][:mongodb][:db_password]%>"
+        password: "<%= node[:meetme_newrelic_plugin][:mongodb][:db_password] %>"
 <% end %>
 
 <% if node[:meetme_newrelic_plugin][:rabbitmq][:enable] %>
