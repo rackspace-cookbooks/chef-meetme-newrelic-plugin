@@ -1,3 +1,4 @@
+default[:meetme_newrelic_plugin][:rabbitmq][:name] = node[:hostname]
 default[:meetme_newrelic_plugin][:rabbitmq][:host] = "localhost"
 default[:meetme_newrelic_plugin][:rabbitmq][:port] = "15672"
 default[:meetme_newrelic_plugin][:rabbitmq][:username] = "guest"
