@@ -1,143 +1,44 @@
 %YAML 1.2
 ---
 Application:
-  license_key: <%= @license_key %>
-  poll_interval: <%= @poll_interval %>
+  license_key: <%= node[:newrelic][:application_monitoring][:license] %>
+  wake_interval: <%= node[:meetme_newrelic_plugin][:poll_interval] %>
   #proxy: http://localhost:8080
 
-  #apache_httpd:
-  #  name: hostname
-  #  scheme: http
-  #  host: localhost
-  #  verify_ssl_cert: true
-  #  port: 80
-  #  path: /server-status
+<% if node[:meetme_newrelic_plugin][:elasticsearch][:enable] %>
+  elasticsearch:
+    name: <%= node[:meetme_newrelic_plugin][:elasticsearch][:clustername] %>
+    host: <%= node[:meetme_newrelic_plugin][:elasticsearch][:host] %>
+    port: <%= node[:meetme_newrelic_plugin][:elasticsearch][:port] %>
+    scheme: <%= node[:meetme_newrelic_plugin][:elasticsearch][:scheme] %>
+<% end %>
 
-  #couchdb:
-  #  name: localhost
-  #  host: localhost
-  #  verify_ssl_cert: true
-  #  port: 5984
-  #  username: foo
-  #  password: bar
+<% if node[:meetme_newrelic_plugin][:mongodb][:enable] %>
+  mongodb:  # Use when authentication is required
+    name: <%= node[:meetme_newrelic_plugin][:mongodb][:name] %>
+    host: <%= node[:meetme_newrelic_plugin][:mongodb][:host] %>
+    port: <%= node[:meetme_newrelic_plugin][:mongodb][:port] %>
+    admin_username: "<%= node[:meetme_newrelic_plugin][:mongodb][:admin_username] %>"
+    admin_password: "<%= node[:meetme_newrelic_plugin][:mongodb][:admin_password] %>"
+    databases:
+      <%= node[:meetme_newrelic_plugin][:mongodb][:database] %>:
+        username: "<%= node[:meetme_newrelic_plugin][:mongodb][:db_username] %>"
+        password: "<%= node[:meetme_newrelic_plugin][:mongodb][:db_password]%>"
+<% end %>
 
-  #edgecast:
-  #  name: My Edgecase Account
-  #  account: YOUR_ACCOUNT_#
-  #  token: YOUR_API_TOKEN
-
-  #memcached:
-  #  name: localhost
-  #  host: localhost
-  #  port: 11211
-  #  path: /path/to/unix/socket
-
-  #mongodb:
-  #  name: hostname
-  #  host: localhost
-  #  port: 27017
-  #  admin_username: user
-  #  admin_password: pass
-  #  ssl: False
-  #  ssl_keyfile: /path/to/keyfile
-  #  ssl_certfile: /path/to/certfile
-  #  ssl_cert_reqs: 0  # Should be 0 for ssl.CERT_NONE, 1 for ssl.CERT_OPTIONAL, 2 for ssl.CERT_REQUIRED
-  #  ssl_ca_certs: /path/to/cacerts file
-  #  databases:
-  #    - test
-  #    - yourdbname
-
-  #mongodb:  # Use when authentication is required
-  #  name: hostname
-  #  host: localhost
-  #  port: 27017
-  #  admin_username: user
-  #  admin_password: pass
-  #  ssl: False
-  #  ssl_keyfile: /path/to/keyfile
-  #  ssl_certfile: /path/to/certfile
-  #  ssl_cert_reqs: 0  # Should be 0 for ssl.CERT_NONE, 1 for ssl.CERT_OPTIONAL, 2 for ssl.CERT_REQUIRED
-  #  ssl_ca_certs: /path/to/cacerts file
-  #  databases:
-  #    test:
-  #      username: user
-  #      password: pass
-  #    yourdbname:
-  #      username: user
-  #      password: pass
-
-  #nginx:
-  #  name: hostname
-  #  host: localhost
-  #  port: 80
-  #  verify_ssl_cert: true
-  #  path: /nginx_stub_status
-
-  #pgbouncer:
-  #  host: localhost
-  #  port: 6000
-  #  user: stats
-
-  #php_apc:
-  #  name: hostname
-  #  scheme: http
-  #  host: localhost
-  #  verify_ssl_cert: true
-  #  port: 80
-  #  path: /apc-nrp.php
-
-  #php_fpm:
-  #  - name: fpm-pool
-  #    scheme: https
-  #    host: localhost
-  #    port: 443
-  #    path: /fpm_status
-  #    query: json
-
-  #postgresql:
-  #  host: localhost
-  #  port: 5432
-  #  user: postgres
-  #  dbname: postgres
-  #  superuser: False
-
-  #rabbitmq:
-  #  name: rabbitmq@localhost
-  #  host: localhost
-  #  port: 15672
-  #  verify_ssl_cert: true
-  #  username: guest
-  #  password: guest
-
-  #redis:
-  #  - name: localhost
-  #    host: localhost
-  #    port: 6379
-  #    db_count: 16
-  #    password: foo # [OPTIONAL]
-  #    #path: /var/run/redis/redis.sock
-  #  - name: localhost
-  #    host: localhost
-  #    port: 6380
-  #    db_count: 16
-  #    password: foo # [OPTIONAL]
-  #    #path: /var/run/redis/redis.sock
-
-  #riak:
-  #  name: localhost
-  #  host: node0.riak0.scs.mtmeprod.net
-  #  verify_ssl_cert: true
-  #  port: 8098
-
-  #uwsgi:
-  #  name: localhost
-  #  host: localhost
-  #  port: 1717
-  #  path: /path/to/unix/socket
+<% if node[:meetme_newrelic_plugin][:rabbitmq][:enable] %>
+  rabbitmq:
+    name: <%= node[:meetme_newrelic_plugin][:rabbitmq][:name] %>
+    host: <%= node[:meetme_newrelic_plugin][:rabbitmq][:host] %>
+    port: <%= node[:meetme_newrelic_plugin][:rabbitmq][:port] %>
+    username: <%= node[:meetme_newrelic_plugin][:rabbitmq][:username] %>
+    password: <%= node[:meetme_newrelic_plugin][:rabbitmq][:password] %>
+    verify_ssl_cert: <%= node[:meetme_newrelic_plugin][:rabbitmq][:verify_ssl_cert] %>
+<% end %>
 
 Daemon:
-  user: <%= @user %>
-  pidfile: <%= @run_dir %>/newrelic_plugin_agent.pid
+  user: <%= node[:meetme_newrelic_plugin][:user] %>
+  pidfile: <%= node[:meetme_newrelic_plugin][:run_dir] %>/newrelic_plugin_agent.pid
 
 Logging:
   formatters:
@@ -147,7 +48,7 @@ Logging:
     file:
       class : logging.handlers.RotatingFileHandler
       formatter: verbose
-      filename: <%= @log_file %>
+      filename: <%= node[:meetme_newrelic_plugin][:log_dir] %>/<%= node[:meetme_newrelic_plugin][:log_file] %>
       maxBytes: 10485760
       backupCount: 3
   loggers:

@@ -6,3 +6,7 @@ default[:meetme_newrelic_plugin][:log_file] = "newrelic_plugin_agent.log"
 default[:meetme_newrelic_plugin][:run_dir] = "/var/run/newrelic"
 default[:meetme_newrelic_plugin][:user] = "newrelic"
 default[:meetme_newrelic_plugin][:group] = "root"
+
+default[:meetme_newrelic_plugin][:elasticsearch][:enable] = false
+default[:meetme_newrelic_plugin][:mongodb][:enable] = false
+default[:meetme_newrelic_plugin][:rabbitmq][:enable] = false
