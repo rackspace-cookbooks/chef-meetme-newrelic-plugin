@@ -8,5 +8,6 @@ default[:meetme_newrelic_plugin][:user] = "newrelic"
 default[:meetme_newrelic_plugin][:group] = "root"
 
 default[:meetme_newrelic_plugin][:elasticsearch][:enable] = false
+default[:meetme_newrelic_plugin][:memcached][:enable] = false
 default[:meetme_newrelic_plugin][:mongodb][:enable] = false
 default[:meetme_newrelic_plugin][:rabbitmq][:enable] = false

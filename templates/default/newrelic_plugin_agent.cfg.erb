@@ -13,6 +13,16 @@ Application:
     scheme: <%= node[:meetme_newrelic_plugin][:elasticsearch][:scheme] %>
 <% end %>
 
+<% if node[:meetme_newrelic_plugin][:memcached][:enable] %>
+  memcached: 
+    name: <%= node[:meetme_newrelic_plugin][:memcached][:name] %>
+    host: <%= node[:meetme_newrelic_plugin][:memcached][:host] %>
+    port: <%= node[:meetme_newrelic_plugin][:memcached][:port] %>
+  <%= unless node[:meetme_newrelic_plugin][:memcached][:path].nil? %>
+    path: <%= node[:meetme_newrelic_plugin][:memcached][:path] %>
+  <% end %>
+<% end %>
+
 <% if node[:meetme_newrelic_plugin][:mongodb][:enable] %>
   mongodb:  # Use when authentication is required
     name: <%= node[:meetme_newrelic_plugin][:mongodb][:name] %>
