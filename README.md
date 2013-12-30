@@ -39,6 +39,21 @@ Attributes
 * `node[:meetme_newrelic_plugin][:mongodb][:db_username_key]` - key for db username
 * `node[:meetme_newrelic_plugin][:mongodb][:db_password_key]` - key for db password
 
+#### meetme-newrelic-plugin::nginx
+* `node[:meetme_newrelic_plugin][:nginx][:name]` - hostname nginx is running on
+* `node[:meetme_newrelic_plugin][:nginx][:host]` - host nginx is listening on
+* `node[:meetme_newrelic_plugin][:nginx][:port]` - port nginx is listening on
+* `node[:meetme_newrelic_plugin][:nginx][:path]` - path of nginx stub status page
+* `node[:meetme_newrelic_plugin][:nginx][:verify_ssl_cert]` - verify ssl certificate flag
+
+#### meetme-newrelic-plugin::php_fpm
+* `node[:meetme_newrelic_plugin][:php_fpm][:name]` - hostname php-fpm is running on
+* `node[:meetme_newrelic_plugin][:php_fpm][:scheme]` - fpm scheme (ex: http or https)
+* `node[:meetme_newrelic_plugin][:php_fpm][:host]` - host where fpm status page is listening
+* `node[:meetme_newrelic_plugin][:php_fpm][:port]` - port where fpm status page is listening
+* `node[:meetme_newrelic_plugin][:php_fpm][:path]` - path of fpm status page 
+* `node[:meetme_newrelic_plugin][:php_fpm][:query]` - query type (ex: json)
+
 
 Usage
 -----
