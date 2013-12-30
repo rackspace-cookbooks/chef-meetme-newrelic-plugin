@@ -34,6 +34,25 @@ Application:
         password: "<%= node[:meetme_newrelic_plugin][:mongodb][:db_password] %>"
 <% end %>
 
+<% if node[:meetme_newrelic_plugin][:nginx][:enable] %>
+  nginx:
+    name: <%= node[:meetme_newrelic_plugin][:nginx][:name] %>
+    host: <%= node[:meetme_newrelic_plugin][:nginx][:host] %>
+    port: <%= node[:meetme_newrelic_plugin][:nginx][:port] %>
+    path: <%= node[:meetme_newrelic_plugin][:nginx][:path] %>
+    <% unless node[:meetme_newrelic_plugin][:nginx][:verify_ssl_cert].nil?  %>verify_ssl_cert: <%= node[:meetme_newrelic_plugin][:nginx][:verify_ssl_cert] %><% end %>
+<% end %>
+
+<% if node[:meetme_newrelic_plugin][:php_fpm][:enable] %>
+  php_fpm:
+    name: <%= node[:meetme_newrelic_plugin][:php_fpm][:name] %>
+    scheme: <%= node[:meetme_newrelic_plugin][:php_fpm][:scheme] %>
+    host: <%= node[:meetme_newrelic_plugin][:php_fpm][:host] %>
+    port: <%= node[:meetme_newrelic_plugin][:php_fpm][:port] %>
+    path: <%= node[:meetme_newrelic_plugin][:php_fpm][:path] %>
+    query: <%= node[:meetme_newrelic_plugin][:php_fpm][:query] %>
+<% end %>
+
 <% if node[:meetme_newrelic_plugin][:rabbitmq][:enable] %>
   rabbitmq:
     name: <%= node[:meetme_newrelic_plugin][:rabbitmq][:name] %>
