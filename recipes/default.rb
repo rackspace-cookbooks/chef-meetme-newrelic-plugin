@@ -28,7 +28,7 @@ directory node[:meetme_newrelic_plugin][:log_dir] do
 end
 
 template "/etc/init.d/newrelic_plugin_agent" do
-  source "newrelic_plugin_agent.initd-deb.erb"
+  source "newrelic_plugin_agent.initd.erb"
   owner node[:meetme_newrelic_plugin][:user]
   group node[:meetme_newrelic_plugin][:group]
   mode 0774
