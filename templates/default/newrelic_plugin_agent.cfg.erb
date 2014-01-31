@@ -1,71 +1,71 @@
 %YAML 1.2
 ---
 Application:
-  license_key: <%= node[:newrelic][:application_monitoring][:license] %>
-  wake_interval: <%= node[:meetme_newrelic_plugin][:poll_interval] %>
+  license_key: <%= node['newrelic']['application_monitoring']['license'] %>
+  wake_interval: <%= node['rackspace_meetme_newrelic_plugin']['poll_interval'] %>
   #proxy: http://localhost:8080
 
-<% if node[:meetme_newrelic_plugin][:elasticsearch][:enable] %>
+<% if node['rackspace_meetme_newrelic_plugin']['elasticsearch']['enable'] %>
   elasticsearch:
-    name: <%= node[:meetme_newrelic_plugin][:elasticsearch][:clustername] %>
-    host: <%= node[:meetme_newrelic_plugin][:elasticsearch][:host] %>
-    port: <%= node[:meetme_newrelic_plugin][:elasticsearch][:port] %>
-    scheme: <%= node[:meetme_newrelic_plugin][:elasticsearch][:scheme] %>
+    name: <%= node['rackspace_meetme_newrelic_plugin']['elasticsearch']['clustername'] %>
+    host: <%= node['rackspace_meetme_newrelic_plugin']['elasticsearch']['host'] %>
+    port: <%= node['rackspace_meetme_newrelic_plugin']['elasticsearch']['port'] %>
+    scheme: <%= node['rackspace_meetme_newrelic_plugin']['elasticsearch']['scheme'] %>
 <% end %>
 
-<% if node[:meetme_newrelic_plugin][:memcached][:enable] %>
+<% if node['rackspace_meetme_newrelic_plugin']['memcached']['enable'] %>
   memcached: 
-    name: <%= node[:meetme_newrelic_plugin][:memcached][:name] %>
-    host: <%= node[:meetme_newrelic_plugin][:memcached][:host] %>
-    port: <%= node[:meetme_newrelic_plugin][:memcached][:port] %>
-    <% unless node[:meetme_newrelic_plugin][:memcached][:path].nil?  %>path: <%= node[:meetme_newrelic_plugin][:memcached][:path] %><% end %>
+    name: <%= node['rackspace_meetme_newrelic_plugin']['memcached']['name'] %>
+    host: <%= node['rackspace_meetme_newrelic_plugin']['memcached']['host'] %>
+    port: <%= node['rackspace_meetme_newrelic_plugin']['memcached']['port'] %>
+    <% unless node['rackspace_meetme_newrelic_plugin']['memcached']['path'].nil?  %>path: <%= node['rackspace_meetme_newrelic_plugin']['memcached']['path'] %><% end %>
 <% end %>
 
-<% if node[:meetme_newrelic_plugin][:mongodb][:enable] %>
+<% if node['rackspace_meetme_newrelic_plugin']['mongodb']['enable'] %>
   mongodb:  # Use when authentication is required
-    name: <%= node[:meetme_newrelic_plugin][:mongodb][:name] %>
-    host: <%= node[:meetme_newrelic_plugin][:mongodb][:host] %>
-    port: <%= node[:meetme_newrelic_plugin][:mongodb][:port] %>
-    admin_username: "<%= node[:meetme_newrelic_plugin][:mongodb][:admin_username] %>"
-    admin_password: "<%= node[:meetme_newrelic_plugin][:mongodb][:admin_password] %>"
+    name: <%= node['rackspace_meetme_newrelic_plugin']['mongodb']['name'] %>
+    host: <%= node['rackspace_meetme_newrelic_plugin']['mongodb']['host'] %>
+    port: <%= node['rackspace_meetme_newrelic_plugin']['mongodb']['port'] %>
+    admin_username: "<%= node['rackspace_meetme_newrelic_plugin']['mongodb']['admin_username'] %>"
+    admin_password: "<%= node['rackspace_meetme_newrelic_plugin']['mongodb']['admin_password'] %>"
     databases:
-      <%= node[:meetme_newrelic_plugin][:mongodb][:database] %>:
-        username: "<%= node[:meetme_newrelic_plugin][:mongodb][:db_username] %>"
-        password: "<%= node[:meetme_newrelic_plugin][:mongodb][:db_password] %>"
+      <%= node['rackspace_meetme_newrelic_plugin']['mongodb']['database'] %>:
+        username: "<%= node['rackspace_meetme_newrelic_plugin']['mongodb']['db_username'] %>"
+        password: "<%= node['rackspace_meetme_newrelic_plugin']['mongodb']['db_password'] %>"
 <% end %>
 
-<% if node[:meetme_newrelic_plugin][:nginx][:enable] %>
+<% if node['rackspace_meetme_newrelic_plugin']['nginx']['enable'] %>
   nginx:
-    name: <%= node[:meetme_newrelic_plugin][:nginx][:name] %>
-    host: <%= node[:meetme_newrelic_plugin][:nginx][:host] %>
-    port: <%= node[:meetme_newrelic_plugin][:nginx][:port] %>
-    path: <%= node[:meetme_newrelic_plugin][:nginx][:path] %>
-    <% unless node[:meetme_newrelic_plugin][:nginx][:verify_ssl_cert].nil?  %>verify_ssl_cert: <%= node[:meetme_newrelic_plugin][:nginx][:verify_ssl_cert] %><% end %>
+    name: <%= node['rackspace_meetme_newrelic_plugin']['nginx']['name'] %>
+    host: <%= node['rackspace_meetme_newrelic_plugin']['nginx']['host'] %>
+    port: <%= node['rackspace_meetme_newrelic_plugin']['nginx']['port'] %>
+    path: <%= node['rackspace_meetme_newrelic_plugin']['nginx']['path'] %>
+    <% unless node['rackspace_meetme_newrelic_plugin']['nginx']['verify_ssl_cert'].nil?  %>verify_ssl_cert: <%= node['rackspace_meetme_newrelic_plugin']['nginx']['verify_ssl_cert'] %><% end %>
 <% end %>
 
-<% if node[:meetme_newrelic_plugin][:php_fpm][:enable] %>
+<% if node['rackspace_meetme_newrelic_plugin']['php_fpm']['enable'] %>
   php_fpm:
-    name: <%= node[:meetme_newrelic_plugin][:php_fpm][:name] %>
-    scheme: <%= node[:meetme_newrelic_plugin][:php_fpm][:scheme] %>
-    host: <%= node[:meetme_newrelic_plugin][:php_fpm][:host] %>
-    port: <%= node[:meetme_newrelic_plugin][:php_fpm][:port] %>
-    path: <%= node[:meetme_newrelic_plugin][:php_fpm][:path] %>
-    query: <%= node[:meetme_newrelic_plugin][:php_fpm][:query] %>
+    name: <%= node['rackspace_meetme_newrelic_plugin']['php_fpm']['name'] %>
+    scheme: <%= node['rackspace_meetme_newrelic_plugin']['php_fpm']['scheme'] %>
+    host: <%= node['rackspace_meetme_newrelic_plugin']['php_fpm']['host'] %>
+    port: <%= node['rackspace_meetme_newrelic_plugin']['php_fpm']['port'] %>
+    path: <%= node['rackspace_meetme_newrelic_plugin']['php_fpm']['path'] %>
+    query: <%= node['rackspace_meetme_newrelic_plugin']['php_fpm']['query'] %>
 <% end %>
 
-<% if node[:meetme_newrelic_plugin][:rabbitmq][:enable] %>
+<% if node['rackspace_meetme_newrelic_plugin']['rabbitmq']['enable'] %>
   rabbitmq:
-    name: <%= node[:meetme_newrelic_plugin][:rabbitmq][:name] %>
-    host: <%= node[:meetme_newrelic_plugin][:rabbitmq][:host] %>
-    port: <%= node[:meetme_newrelic_plugin][:rabbitmq][:port] %>
-    username: <%= node[:meetme_newrelic_plugin][:rabbitmq][:username] %>
-    password: <%= node[:meetme_newrelic_plugin][:rabbitmq][:password] %>
-    verify_ssl_cert: <%= node[:meetme_newrelic_plugin][:rabbitmq][:verify_ssl_cert] %>
+    name: <%= node['rackspace_meetme_newrelic_plugin']['rabbitmq']['name'] %>
+    host: <%= node['rackspace_meetme_newrelic_plugin']['rabbitmq']['host'] %>
+    port: <%= node['rackspace_meetme_newrelic_plugin']['rabbitmq']['port'] %>
+    username: <%= node['rackspace_meetme_newrelic_plugin']['rabbitmq']['username'] %>
+    password: <%= node['rackspace_meetme_newrelic_plugin']['rabbitmq']['password'] %>
+    verify_ssl_cert: <%= node['rackspace_meetme_newrelic_plugin']['rabbitmq']['verify_ssl_cert'] %>
 <% end %>
 
 Daemon:
-  user: <%= node[:meetme_newrelic_plugin][:user] %>
-  pidfile: <%= node[:meetme_newrelic_plugin][:run_dir] %>/newrelic_plugin_agent.pid
+  user: <%= node['rackspace_meetme_newrelic_plugin']['user'] %>
+  pidfile: <%= node['rackspace_meetme_newrelic_plugin']['run_dir'] %>/newrelic_plugin_agent.pid
 
 Logging:
   formatters:
@@ -75,7 +75,7 @@ Logging:
     file:
       class : logging.handlers.RotatingFileHandler
       formatter: verbose
-      filename: <%= node[:meetme_newrelic_plugin][:log_dir] %>/<%= node[:meetme_newrelic_plugin][:log_file] %>
+      filename: <%= node['rackspace_meetme_newrelic_plugin']['log_dir'] %>/<%= node['rackspace_meetme_newrelic_plugin']['log_file'] %>
       maxBytes: 10485760
       backupCount: 3
   loggers:

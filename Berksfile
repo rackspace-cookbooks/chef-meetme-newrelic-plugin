@@ -2,4 +2,4 @@ site :opscode
 
 metadata
 
-cookbook 'python'
+cookbook 'rackspace_python', github: 'rackspace-cookbooks/rackspace_python'

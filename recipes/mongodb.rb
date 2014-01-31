@@ -1,9 +1,9 @@
-node.set[:meetme_newrelic_plugin][:mongodb][:enable] = true
+node.set['rackspace_meetme_newrelic_plugin']['mongodb']['enable'] = true
 
-include_recipe "python::pip"
+include_recipe 'rackspace_python::pip'
 
-python_pip "pymongo" do
+rackspace_python_pip 'pymongo' do
   action :install
 end
 
-include_recipe "meetme-newrelic-plugin::default"
+include_recipe 'rackspace_meetme-newrelic-plugin::default'
