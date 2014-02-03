@@ -3,6 +3,11 @@ meetme-newrelic-plugin CHANGELOG
 
 This file is used to list changes made in each version of the meetme-newrelic-plugin cookbook.
 
+1.0.0
+-----
+- Refactor for Rackspace DevOps conventions
+- Add /etc/init.d/newrelic_plugin_agent template for Cent/RHEL
+
 0.1.0
 -----
 - [your_name] - Initial release of meetme-newrelic-plugin

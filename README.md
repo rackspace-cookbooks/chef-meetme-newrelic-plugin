@@ -6,7 +6,6 @@ Installs the MeetMe plugin for NewRelic
 Requirements
 ------------
 rackspace_python
-newrelic
 
 
 Attributes
@@ -56,7 +55,7 @@ Attributes
 
 Usage
 -----
-Just include `rackspace_meetme-newrelic-plugin` in your node's `run_list`:
+Include `rackspace_meetme-newrelic-plugin` in your node's `run_list`:
 
 ```json
 {
@@ -67,13 +66,16 @@ Just include `rackspace_meetme-newrelic-plugin` in your node's `run_list`:
 }
 ```
 
+Don't forget to provide your New Relic license key at `node['newrelic']['application_monitoring']['license']`.
+
 Contributing
 ------------
 
+* Please see [contributing.md](https://github.com/rackspace-cookbooks/contributing/blob/master/CONTRIBUTING.md) for more details
+
+
 License and Authors
 -------------------
-Authors: 
-
 - Author:: Steven Gonzales
 - Author:: Kent Shultz (kent.shultz@rackspace.com)
 
