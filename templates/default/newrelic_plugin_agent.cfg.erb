@@ -1,7 +1,7 @@
 %YAML 1.2
 ---
 Application:
-  license_key: <%= node[:newrelic][:application_monitoring][:license] %>
+  license_key: <%= node[:rackspace_newrelic][:application_monitoring][:license] %>
   wake_interval: <%= node[:meetme_newrelic_plugin][:poll_interval] %>
   #proxy: http://localhost:8080
 
